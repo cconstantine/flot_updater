@@ -45,12 +45,13 @@
 	}
 
 	function update(first) {
+	    setTimeout(update, updateInterval);	   
+
 	    pointsRemaining++;
 	    params.totalPoints = pointsRemaining;
-	    console.log("ping");
+
 	    if (!processingRequest) {
 		try {
-		    console.log("pong");
 		    pointsRemaining = 0
 		    processingRequest = true;
 		    ajax_args.data = params;
@@ -61,7 +62,6 @@
 		    processingRequest = false;
 		}
 	    }
-	    setTimeout(update, updateInterval);	   
 	}
 
 
